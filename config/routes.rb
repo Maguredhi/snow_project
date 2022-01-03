@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
-  get 'messages/new'
-  get 'messages/create'
+  devise_for :users
+  # get 'messages/new'
+  # get 'messages/create'
   resources :rooms do
     resources :messages
   end
