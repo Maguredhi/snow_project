@@ -4,19 +4,23 @@
       <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @room %>
+    <%= turbo_stream_from @room %>
+    <%= turbo_frame_tag "room" do %>
+      <%= render @room %>
 
-    <%= link_to 'Edit this room', edit_room_path(@room), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this room', room_path(@room), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to 'Back to rooms', rooms_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to 'Edit this room', edit_room_path(@room), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <div class="inline-block ml-2">
+        <%= button_to 'Destroy this room', room_path(@room), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
+      </div>
+      <%= link_to 'Back to rooms', rooms_path, "data-turbo-frame": "_top", class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <% end %>
   </div>
 
   <div id="messages">
     <%= render @room.messages %>
   </div>
 
-  <%= link_to "New Message", new_room_message_path(@room) %>
+  <% link_to "New message", new_room_message_path(@room) %>
+  <%= turbo_frame_tag "New message", src: new_room_message_path(@room), target: "_top" %>
 
 </div>

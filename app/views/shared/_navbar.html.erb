@@ -30,11 +30,14 @@
       </div>
       <div class="flex-1 flex items-center justify-center sm:items-stretch sm:justify-start">
         <div class="flex-shrink-0 flex items-center">
-          <%= image_tag "snow_icon.png", class: 'block lg:hidden h-8 w-auto rounded-full' %>
-          <%= image_tag "snow_icon.png", class: 'hidden lg:block h-8 w-auto rounded-full' %>
+          <%= image_tag "snow_icon.png", class: 'block lg:hidden h-10 w-auto rounded-full' %>
+          <%= link_to root_path, class: "flex" do %>
+            <%= image_tag "snow_icon.png", class: 'hidden lg:block h-10 w-auto rounded-full' %>
+            <p class="text-white ml-2 mt-2">Ski & Snowboard</p>
+          <% end %>
         </div>
         <div class="hidden sm:block sm:ml-6">
-          <div class="flex space-x-4">
+          <div class="flex space-x-4 mt-1">
             <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
             <a href="#" class="bg-gray-900 text-white px-3 py-2 rounded-md text-sm font-medium" aria-current="page">Dashboard</a>
 
