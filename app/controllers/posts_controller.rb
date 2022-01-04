@@ -12,9 +12,14 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
+    @post.status = 'published' if params[:publish]
 
     if @post.save
-      redirect_to posts_path, notice: "存檔成功"
+      if params[:publish]
+        redirect_to posts_path, notice: "發佈成功"
+      else
+        redirect_to edit_post_path(@post), notice: "儲存成功"
+      end
     else
       render :new
     end
@@ -32,6 +37,8 @@ class PostsController < ApplicationController
   end
 
   def destroy
+    @post.destroy
+    redirect_to posts_path, notice: "刪除成功"
   end
 
   private

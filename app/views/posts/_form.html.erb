@@ -22,8 +22,8 @@
         </div>
       </div>
       <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
-        <%= form.submit '儲存草稿', class: "btn-secondary mr-2" %>
-        <%= form.submit '發布貼文', class: "btn-primary" %>
+        <%= form.submit '儲存草稿', name: 'save_as_draft', class: "btn-secondary mr-2" %>
+        <%= form.submit '發布貼文', name: 'publish', class: "btn-primary" %>
       </div>
     </div>
   <% end %>
