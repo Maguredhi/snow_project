@@ -1,0 +1,30 @@
+<div class="mt-5 md:mt-0 md:col-span-2">
+  <%= form_with model: post do |form| %>
+    <div class="shadow sm:rounded-md sm:overflow-hidden">
+      <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
+        <div>
+          <%= form.label :title, "標題", class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_field :title, class: "shadow-sm focus:ring-gray-800 focus:border-gray-800 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" %>
+          </div>
+        </div>
+        <div>
+          <%= form.label :location, "地點", class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_field :location, class: "shadow-sm focus:ring-gray-800 focus:border-gray-800 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" %>
+          </div>
+        </div>
+        <div>
+          <%= form.label :content, "內容", class: "block text-sm font-medium text-gray-700" %>
+          <div class="mt-1">
+            <%= form.text_area :content, rows: 10, class: "shadow-sm focus:ring-gray-800 focus:border-gray-800 mt-1 block w-full sm:text-sm border border-gray-300 rounded-md" %>
+          </div>
+        </div>
+      </div>
+      <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
+        <%= form.submit '儲存草稿', class: "btn-secondary mr-2" %>
+        <%= form.submit '發布貼文', class: "btn-primary" %>
+      </div>
+    </div>
+  <% end %>
+</div>
