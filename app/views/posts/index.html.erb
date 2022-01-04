@@ -1,11 +1,13 @@
 <h1 class="text-2xl font-medium leading-6 text-gray-900 mb-5">Post List</h1>
 <% @posts.each do |post| %>
   <div class="bg-white shadow overflow-hidden sm:rounded-lg mb-6">
-    <div class="px-4 py-5 sm:px-6">
-      <h3 class="text-lg leading-6 font-medium text-gray-900">
-        <%= post.title %>
-        <%#= content_tag :span, '已發佈', class: '' if post.published? %>
-      </h3>
+    <div class="px-4 py-5 sm:px-6 flex">
+      <h3 class="text-lg leading-6 font-medium text-gray-900"><%= post.title %></h3>
+      <% if post.published? %>
+        <%= content_tag :p, '已發佈', class: 'tag-orange' %>
+      <% else %>
+        <%= content_tag :p, '未發佈', class: 'tag-gray' %>
+      <% end %>
     </div>
     <div class="border-t border-gray-200">
       <dl>

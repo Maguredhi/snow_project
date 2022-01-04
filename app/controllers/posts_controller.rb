@@ -12,7 +12,7 @@ class PostsController < ApplicationController
 
   def create
     @post = current_user.posts.new(post_params)
-    @post.status = 'published' if params[:publish]
+    @post.publish! if params[:publish]
 
     if @post.save
       if params[:publish]

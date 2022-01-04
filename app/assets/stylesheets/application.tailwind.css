@@ -21,5 +21,25 @@
 }
 
 .btn-danger {
-  @apply inline-flex justify-center py-2 px-4 border-2 border-red-400 shadow-sm text-sm font-medium rounded-md text-red-400 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-600 cursor-pointer;
+  @apply inline-flex justify-center py-2 px-4 border-2 border-red-400 shadow-sm text-sm font-medium rounded-md text-red-400 hover:bg-red-500 hover:text-white focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-600 cursor-pointer;
+}
+
+.tag-blue {
+  @apply ml-2 text-xs inline-flex items-center font-bold uppercase px-3 py-1 bg-blue-200 text-blue-700 rounded-full;
+}
+
+.tag-green {
+  @apply ml-2 text-xs inline-flex items-center font-bold uppercase px-3 py-1 bg-green-200 text-green-700 rounded-full;
+}
+
+.tag-orange {
+  @apply ml-2 text-xs inline-flex items-center font-bold uppercase px-3 py-1 bg-orange-200 text-orange-700 rounded-full;
+}
+
+.tag-red {
+  @apply ml-2 text-xs inline-flex items-center font-bold uppercase px-3 py-1 bg-red-200 text-red-700 rounded-full;
+}
+
+.tag-gray {
+  @apply ml-2 text-xs inline-flex items-center font-bold uppercase px-3 py-1 rounded-full bg-gray-700 text-white border;
 }
