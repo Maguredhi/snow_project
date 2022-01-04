@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       if params[:publish]
         redirect_to posts_path, notice: "發佈成功"
       else
-        redirect_to edit_post_path(@post), notice: "編輯成功"
+        redirect_to edit_post_path(@post), notice: "儲存成功"
       end
     else
       render :new
@@ -53,7 +53,7 @@ class PostsController < ApplicationController
   private
 
   def find_post
-    @post = current_user.posts.find(params[:id])
+    @post = current_user.posts.friendly.find(params[:id])
   end
 
   def post_params
