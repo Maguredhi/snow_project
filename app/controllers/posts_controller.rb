@@ -18,7 +18,7 @@ class PostsController < ApplicationController
       if params[:publish]
         redirect_to posts_path, notice: "發佈成功"
       else
-        redirect_to edit_post_path(@post), notice: "儲存成功"
+        redirect_to edit_post_path(@post), notice: "編輯成功"
       end
     else
       render :new
@@ -30,7 +30,16 @@ class PostsController < ApplicationController
 
   def update
     if @post.update(post_params)
-      redirect_to posts_path, notice: "編輯成功"
+      case
+      when params[:publish]
+        @post.publish!
+        redirect_to posts_path, notice: "發佈成功"
+      when params[:unpublish]
+        @post.unpublish
+        redirect_to posts_path, notice: "已下架"
+      else
+        redirect_to edit_post_path(@post), notice: "編輯成功"
+      end
     else
       render :edit
     end

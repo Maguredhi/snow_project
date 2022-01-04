@@ -1,3 +1,10 @@
+<!-- 有 bug 待解
+<%# if post.errors.any? %>
+  <div class="bg-red-300 text-white">
+    <%= post.errors.full_messages.to_sentence %>
+  </div>
+<%# end %>
+-->
 <div class="mt-5 md:mt-0 md:col-span-2">
   <%= form_with model: post do |form| %>
     <div class="shadow sm:rounded-md sm:overflow-hidden">
@@ -23,7 +30,8 @@
       </div>
       <div class="px-4 py-3 bg-gray-50 text-right sm:px-6">
         <%= form.submit '儲存草稿', name: 'save_as_draft', class: "btn-secondary mr-2" %>
-        <%= form.submit '發布貼文', name: 'publish', class: "btn-primary" %>
+        <%= form.submit '發布貼文', name: 'publish', class: "btn-primary" if post.may_publish? %>
+        <%= form.submit '貼文下架', name: 'unpublish', class: "btn-danger" if post.may_unpublish? %>
       </div>
     </div>
   <% end %>
