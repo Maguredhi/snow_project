@@ -1,12 +1,12 @@
-<!-- 有 bug 待解
-<%# if post.errors.any? %>
-  <div class="bg-red-300 text-white">
+<% if post.errors.any? %>
+  <div class="bg-red-100 border-l-4 border-red-500 text-red-700 p-4" role="alert">
+    <p class="font-bold">Errors!</p>
     <%= post.errors.full_messages.to_sentence %>
   </div>
-<%# end %>
--->
+<% end %>
+
 <div class="mt-5 md:mt-0 md:col-span-2">
-  <%= form_with model: post do |form| %>
+  <%= form_with model: post, local: true, data: { turbo: false } do |form| %>
     <div class="shadow sm:rounded-md sm:overflow-hidden">
       <div class="px-4 py-5 bg-white space-y-6 sm:p-6">
         <div>

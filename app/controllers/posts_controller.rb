@@ -35,7 +35,7 @@ class PostsController < ApplicationController
         @post.publish!
         redirect_to posts_path, notice: "發佈成功"
       when params[:unpublish]
-        @post.unpublish
+        @post.unpublish!
         redirect_to posts_path, notice: "已下架"
       else
         redirect_to edit_post_path(@post), notice: "編輯成功"
