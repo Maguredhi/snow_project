@@ -13,6 +13,10 @@
  *= require_tree .
  *= require_self
  */
+html, body {
+  height: 100%;
+}
+
 turbo-frame {
   display: block;
   border: 1px solid blue;
@@ -24,7 +28,6 @@ turbo-frame {
   visibility: visible;
 }
 
-
-  .profile-avatar img {
-    border-radius: 5px;
-  }
+.profile-avatar img {
+  border-radius: 5px;
+}

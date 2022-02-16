@@ -8,7 +8,10 @@ Rails.application.routes.draw do
     resources :messages
   end
   resources :posts
-  # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+  # /@username/title
+  get '@:username/:post_id', to: 'pages#show', as: 'post_page'
+  # /@username/
+  get '@:username', to: 'pages#user', as: 'user_page'
 
   # Defines the root path route ("/")
   root "pages#index"
