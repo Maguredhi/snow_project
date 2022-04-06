@@ -1,6 +1,6 @@
 class PagesController < ApplicationController
   def index
-    @posts = Post.all
+    @posts = Post.order(updated_at: :desc).includes(:user)
   end
 
   def show
